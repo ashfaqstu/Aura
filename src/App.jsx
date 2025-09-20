@@ -13,10 +13,10 @@ import { useRouter } from './router/RouterContext.js'
 
 const ROUTES = [
   { path: '/aura', element: <Home /> },
-  { path: '/dashboard', element: <Dashboard />, protected: true },
-  { path: '/workspace', element: <Workspace />, protected: true },
-  { path: '/login', element: <Login />, skipLayout: true },
-  { path: '/not-found', element: <NotFound />, skipLayout: true },
+  { path: '/aura/dashboard', element: <Dashboard />, protected: true },
+  { path: '/aura/workspace', element: <Workspace />, protected: true },
+  { path: '/aura/login', element: <Login />, skipLayout: true },
+  { path: '/aura/not-found', element: <NotFound />, skipLayout: true },
 ]
 
 export default function App() {
@@ -30,20 +30,20 @@ export default function App() {
 
   useEffect(() => {
     if (!activeRoute) {
-      if (path !== '/not-found') {
-        navigate('/not-found', { replace: true })
+      if (path !== '/aura/not-found') {
+        navigate('/aura/not-found', { replace: true })
       }
       return
     }
 
     if (activeRoute.protected && !isAuthenticated && !DRAFT_MODE) {
-      if (path !== '/login') {
-        navigate('/login', { replace: true })
+      if (path !== '/aura/login') {
+        navigate('/aura/login', { replace: true })
       }
       return
     }
 
-    if (activeRoute.path === '/login' && isAuthenticated && !DRAFT_MODE) {
+    if (activeRoute.path === '/aura/login' && isAuthenticated && !DRAFT_MODE) {
       navigate('/', { replace: true })
     }
   }, [activeRoute, isAuthenticated, navigate, path])
@@ -52,11 +52,11 @@ export default function App() {
     return <NotFound />
   }
 
-  if (activeRoute.protected && !isAuthenticated && !DRAFT_MODE && path !== '/login') {
+  if (activeRoute.protected && !isAuthenticated && !DRAFT_MODE && path !== '/aura/login') {
     return null
   }
 
-  if (activeRoute.path === '/login' && isAuthenticated && !DRAFT_MODE) {
+  if (activeRoute.path === '/aura/login' && isAuthenticated && !DRAFT_MODE) {
     return null
   }
 
