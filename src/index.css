@@ -17,7 +17,7 @@
 }
 
 @theme {
-  --font-space: "Space", "Sterion", sans-serif;
+  --font-space: "Sterion","Space" , sans-serif;
 }
 
 :root {

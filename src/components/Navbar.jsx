@@ -17,18 +17,11 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <button type="button" className="navbar__brand" onClick={() => navigate('/aura')}>
+      <button type="button" className="navbar__brand text-blue-300" onClick={() => navigate('/aura')}>
         Aura
       </button>
-      <div className="navbar__actions">
-        {isAuthenticated && user ? (
-          <span className="navbar__greeting">Hello, {user.name}</span>
-        ) : (
-          <span className="navbar__greeting">Welcome to Aura</span>
-        )}
-        <button type="button" className="navbar__button" onClick={handleAuthAction}>
-          {isAuthenticated ? 'Sign out' : 'Sign in'}
-        </button>
+      <div className="navbar__greeting">
+        Your Companion
       </div>
     </header>
   )
