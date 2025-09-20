@@ -12,7 +12,7 @@ import { normalizePath } from './router/routerUtils.js'
 import { useRouter } from './router/RouterContext.js'
 
 const ROUTES = [
-  { path: '/', element: <Home /> },
+  { path: '/aura', element: <Home /> },
   { path: '/dashboard', element: <Dashboard />, protected: true },
   { path: '/workspace', element: <Workspace />, protected: true },
   { path: '/login', element: <Login />, skipLayout: true },
