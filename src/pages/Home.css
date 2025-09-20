@@ -1,8 +1,126 @@
-/* Subtle, but visible in light mode */
-.stars {
-  background-image:
-    radial-gradient(rgba(120, 144, 255, 0.35) 1px, transparent 1px),
-    radial-gradient(rgba(120, 144, 255, 0.22) 0.8px, transparent 0.1px);
-  background-size: 120px 120px, 60px 60px;
-  background-position: 0 0, 30px 30px;
+.home {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+  color: #0f172a; /* deep slate text */
+  background: radial-gradient(circle at 20% 15%, #e0f2fe 0%, rgba(191, 219, 254, 0.35) 45%),
+    radial-gradient(circle at 80% 10%, rgba(147, 197, 253, 0.65), rgba(219, 234, 254, 0) 58%),
+    linear-gradient(180deg, #f8fbff 0%, #e6f1ff 55%, #dbeafe 100%);
+  font-family: "Sterion", "Space", sans-serif;
+}
+
+/* Decorative layers */
+.home__background,
+.home__stars,
+.home__nebula,
+.home__halo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.home__background {
+  background: white;
+  z-index: 0;
+}
+
+/* subtle white/blue sparkles */
+.home__stars {
+  z-index: 1;
+  background-image: 
+    radial-gradient(rgba(59, 130, 246, 0.85) 1px, transparent 1px),   /* blue-500 */
+    radial-gradient(rgba(96, 165, 250, 0.7) 1.2px, transparent 1.2px), /* blue-400 */
+    radial-gradient(rgba(147, 197, 253, 0.6) 1.5px, transparent 1.5px); /* blue-300 */
+  background-size: 160px 160px, 200px 200px, 320px 320px;
+  background-position: 40px 80px, 20px 40px, 0 0;
+  animation: twinkle 18s linear infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  40%      { opacity: 0.6; transform: scale(0.98); }
+  70%      { opacity: 1;   transform: scale(1.02); }
+}
+
+
+
+/* glowing blue haze */
+.home__nebula {
+  z-index: 2;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.home__nebula--left {
+  background: radial-gradient(circle at 15% 60%, rgba(147, 197, 253, 0.5), rgba(147, 197, 253, 0) 55%);
+}
+
+.home__nebula--right {
+  background: radial-gradient(circle at 85% 45%, rgba(191, 219, 254, 0.45), rgba(191, 219, 254, 0) 58%);
+}
+
+/* light blue halos */
+.home__halo {
+  z-index: 3;
+  mix-blend-mode: lighten;
+}
+
+.home__halo--top {
+  background: radial-gradient(circle at 10% -5%, rgba(96, 165, 250, 0.5), rgba(96, 165, 250, 0) 60%);
+}
+
+.home__halo--bottom {
+  background: radial-gradient(circle at 45% 120%, rgba(147, 197, 253, 0.55), rgba(147, 197, 253, 0) 60%);
+}
+
+/* layout */
+.home__layout {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 6rem) clamp(3rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 6vw, 4.5rem);
+}
+
+.home__hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(2rem, 10vw, 9rem);
+  text-align: center;
+}
+
+/* blue gradient title */
+.home__title {
+  margin: 0;
+  font-size: clamp(4.5rem, 14vw, 11rem);
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  background: linear-gradient(180deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 12px 40px rgba(59, 130, 246, 0.25);
+}
+
+.home__subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  letter-spacing: 0.35em;
+  color: #2563eb;
+  text-shadow: 0 0 18px rgba(96, 165, 250, 0.6);
+  white-space: nowrap;
+}
+
+/* planet glow */
+.home__planet-glow {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.45) 0%, rgba(147, 197, 253, 0) 65%);
+  filter: blur(24px);
+  z-index: 0;
 }
