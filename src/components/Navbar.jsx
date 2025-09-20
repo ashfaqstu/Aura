@@ -9,9 +9,9 @@ export default function Navbar() {
   const handleAuthAction = () => {
     if (isAuthenticated) {
       logout()
-      navigate('/login')
+      navigate('/aura/login')
     } else {
-      navigate('/login')
+      navigate('/aura/login')
     }
   }
 
