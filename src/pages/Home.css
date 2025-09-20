@@ -1,0 +1,8 @@
+/* Subtle, but visible in light mode */
+.stars {
+  background-image:
+    radial-gradient(rgba(120, 144, 255, 0.35) 1px, transparent 1px),
+    radial-gradient(rgba(120, 144, 255, 0.22) 0.8px, transparent 0.1px);
+  background-size: 120px 120px, 60px 60px;
+  background-position: 0 0, 30px 30px;
+}

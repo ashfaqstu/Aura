@@ -4,10 +4,10 @@ import Navbar from './Navbar'
 
 export default function Layout({ children }) {
   return (
-    <div className="layout">
+    <div>
       {/* <Navbar /> */}
-      <div className="layout__body">
-        <main className="layout__content">{children}</main>
+      <div className>
+        <main >{children}</main>
       </div>
     </div>
   )
