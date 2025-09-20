@@ -12,7 +12,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault()
     login({ email, name })
-    navigate('/dashboard', { replace: true })
+    navigate('/aura', { replace: true })
   }
 
   return (
@@ -20,7 +20,7 @@ export default function Login() {
       <div className="login__panel">
         <h2>Sign in to Aura</h2>
         <p className="login__subtitle">
-          Use any email to begin a session. Authentication is simplified for prototype purposes.
+          Use any email to begin a session. Credentials are persisted locally so you stay signed in between visits.
         </p>
         <form className="login__form" onSubmit={handleSubmit}>
           <label className="login__label">
@@ -41,13 +41,16 @@ export default function Login() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               required
+              autoComplete="email"
             />
           </label>
           <button type="submit" className="login__button">
             Enter Aura
           </button>
         </form>
-        <button type="button" className="login__back" onClick={() => navigate('/')}>Return home</button>
+        <button type="button" className="login__back" onClick={() => navigate('/aura')}>
+          Return home
+        </button>
       </div>
     </div>
   )

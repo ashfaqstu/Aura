@@ -5,12 +5,16 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import { useAuth } from './context/AuthContext.js'
-import { DRAFT_MODE } from './config/appConfig'
+import { DRAFT_MODE } from './config/appConfig.js'
 import { normalizePath } from './router/routerUtils.js'
 import { useRouter } from './router/RouterContext.js'
 
 const ROUTES = [
-  { path: '/aura', element: <Home /> },
+  {
+    path: '/aura',
+    element: <Home />,
+    protected: false, // Set `protected: true` on any route that should require authentication.
+  },
   { path: '/aura/login', element: <Login />, skipLayout: true },
   { path: '/aura/not-found', element: <NotFound />, skipLayout: true },
 ]
