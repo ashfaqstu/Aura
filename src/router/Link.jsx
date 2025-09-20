@@ -1,14 +1,19 @@
 import { normalizePath } from './routerUtils.js'
 import { useRouter } from './RouterContext.js'
 
-export function Link({ to, children, className = '', activeClassName = '', ...props }) {
+export function Link({ to, href, children, className = '', activeClassName = '', ...props }) {
   const { navigate, path } = useRouter()
-  const normalizedTarget = normalizePath(to)
-  const isActive = path === normalizedTarget
+  const hasRouterTarget = typeof to === 'string' && to.trim() !== ''
+  const normalizedRouterTarget = hasRouterTarget ? normalizePath(to) : null
+  const isActive = hasRouterTarget && path === normalizedRouterTarget
 
-  const combinedClassName = [className, isActive && activeClassName].filter(Boolean).join(' ')
+  const combinedClassName = [className, isActive ? activeClassName : ''].filter(Boolean).join(' ')
 
   const handleClick = (event) => {
+    if (!hasRouterTarget) {
+      return
+    }
+
     if (
       event.defaultPrevented ||
       event.button !== 0 ||
@@ -21,11 +26,13 @@ export function Link({ to, children, className = '', activeClassName = '', ...pr
     }
 
     event.preventDefault()
-    navigate(normalizedTarget)
+    navigate(normalizedRouterTarget)
   }
 
+  const targetHref = hasRouterTarget ? normalizedRouterTarget : href ?? '#'
+
   return (
-    <a href={normalizedTarget} onClick={handleClick} className={combinedClassName} {...props}>
+    <a href={targetHref} onClick={handleClick} className={combinedClassName} {...props}>
       {children}
     </a>
   )

@@ -1,0 +1,69 @@
+.planet-scene {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  border-radius: 32px;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 20%, rgba(96, 165, 250, 0.4), transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(56, 189, 248, 0.3), transparent 65%),
+    linear-gradient(160deg, rgba(8, 47, 73, 0.95), rgba(15, 23, 42, 0.9));
+  box-shadow: 0 38px 90px rgba(15, 23, 42, 0.45), inset 0 0 0 1px rgba(148, 197, 255, 0.12);
+}
+
+.planet-scene::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(59, 130, 246, 0.1));
+  opacity: 0.7;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+.planet-scene::after {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 16%;
+  width: 55%;
+  height: 22%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  filter: blur(18px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.planet-scene__canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.planet-scene canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .planet-scene {
+    max-width: 360px;
+    border-radius: 28px;
+  }
+
+  .planet-scene::before {
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .planet-scene {
+    margin: 0 auto;
+  }
+}

@@ -1,3 +1,54 @@
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Stars } from '@react-three/drei'
+import './PlanetScene.css'
+
+function Planet() {
+  return (
+    <mesh rotation={[0.4, 0.6, 0]}>
+      <sphereGeometry args={[1.2, 64, 64]} />
+      <meshPhysicalMaterial
+        color="#93c5fd"
+        emissive="#60a5fa"
+        emissiveIntensity={0.25}
+        roughness={0.2}
+        metalness={0.05}
+        clearcoat={0.45}
+        clearcoatRoughness={0.18}
+      />
+    </mesh>
+  )
+}
+
+function Atmosphere() {
+  return (
+    <mesh scale={1.2}>
+      <sphereGeometry args={[1.2, 64, 64]} />
+      <meshBasicMaterial color="#bfdbfe" transparent opacity={0.15} />
+    </mesh>
+  )
+}
+
+export default function PlanetScene() {
+  return (
+    <div className="planet-scene" role="img" aria-label="Stylised rotating blue planet floating in space">
+      <Canvas
+        className="planet-scene__canvas"
+        dpr={[1, 1.8]}
+        camera={{ position: [3.2, 1.8, 3.6], fov: 45 }}
+      >
+        <ambientLight intensity={0.4} />
+        <pointLight position={[4, 6, 3]} intensity={1.1} color="#dbeafe" />
+        <group>
+          <Planet />
+          <Atmosphere />
+        </group>
+        <Stars radius={18} depth={45} count={1200} factor={4} saturation={0} fade speed={1} />
+        <OrbitControls enablePan={false} enableZoom={false} autoRotate autoRotateSpeed={0.55} />
+      </Canvas>
+    </div>
+  )
+}
+
 // src/components/EarthModel.jsx
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
