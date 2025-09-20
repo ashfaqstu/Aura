@@ -12,11 +12,11 @@ import { normalizePath } from './router/routerUtils.js'
 import { useRouter } from './router/RouterContext.js'
 
 const ROUTES = [
-  { path: '/Aura', element: <Home /> },
-  { path: '/Aura/dashboard', element: <Dashboard />, protected: true },
-  { path: '/Aura/workspace', element: <Workspace />, protected: true },
-  { path: '/Aura/login', element: <Login />, skipLayout: true },
-  { path: '/Aura/not-found', element: <NotFound />, skipLayout: true },
+  { path: '/aura', element: <Home /> },
+  { path: '/aura/dashboard', element: <Dashboard />, protected: true },
+  { path: '/aura/workspace', element: <Workspace />, protected: true },
+  { path: '/aura/login', element: <Login />, skipLayout: true },
+  { path: '/aura/not-found', element: <NotFound />, skipLayout: true },
 ]
 
 export default function App() {
@@ -30,21 +30,21 @@ export default function App() {
 
   useEffect(() => {
     if (!activeRoute) {
-      if (path !== '/Aura/not-found') {
-        navigate('/Aura/not-found', { replace: true })
+      if (path !== '/aura/not-found') {
+        navigate('/aura/not-found', { replace: true })
       }
       return
     }
 
     if (activeRoute.protected && !isAuthenticated && !DRAFT_MODE) {
-      if (path !== '/Aura/login') {
-        navigate('/Aura/login', { replace: true })
+      if (path !== '/aura/login') {
+        navigate('/aura/login', { replace: true })
       }
       return
     }
 
-    if (activeRoute.path === '/Aura/login' && isAuthenticated && !DRAFT_MODE) {
-      navigate('/Aura', { replace: true })
+    if (activeRoute.path === '/aura/login' && isAuthenticated && !DRAFT_MODE) {
+      navigate('/aura', { replace: true })
     }
   }, [activeRoute, isAuthenticated, navigate, path])
 
@@ -52,11 +52,11 @@ export default function App() {
     return <NotFound />
   }
 
-  if (activeRoute.protected && !isAuthenticated && !DRAFT_MODE && path !== '/Aura/login') {
+  if (activeRoute.protected && !isAuthenticated && !DRAFT_MODE && path !== '/aura/login') {
     return null
   }
 
-  if (activeRoute.path === '/Aura/login' && isAuthenticated && !DRAFT_MODE) {
+  if (activeRoute.path === '/aura/login' && isAuthenticated && !DRAFT_MODE) {
     return null
   }
 
