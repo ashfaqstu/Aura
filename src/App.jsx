@@ -44,7 +44,7 @@ export default function App() {
     }
 
     if (activeRoute.path === '/aura/login' && isAuthenticated && !DRAFT_MODE) {
-      navigate('/', { replace: true })
+      navigate('/aura', { replace: true })
     }
   }, [activeRoute, isAuthenticated, navigate, path])
 
