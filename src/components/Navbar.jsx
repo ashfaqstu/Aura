@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <button type="button" className="navbar__brand" onClick={() => navigate('/')}>
+      <button type="button" className="navbar__brand" onClick={() => navigate('/aura')}>
         Aura
       </button>
       <div className="navbar__actions">

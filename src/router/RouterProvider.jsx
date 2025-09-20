@@ -5,7 +5,7 @@ import { normalizePath } from './routerUtils.js'
 export function RouterProvider({ children }) {
   const getInitialPath = () => {
     if (typeof window === 'undefined') {
-      return '/'
+      return '/aura'
     }
     return normalizePath(window.location.pathname)
   }

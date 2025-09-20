@@ -1,6 +1,3 @@
-+54
--0
-
 import { useState } from 'react'
 import './Login.css'
 import { useAuth } from '../context/AuthContext.js'

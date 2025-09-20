@@ -2,8 +2,6 @@ import { useEffect, useMemo } from 'react'
 import './App.css'
 import Layout from './components/Layout'
 import Home from './pages/Home'
-import Dashboard from './pages/Dashboard'
-import Workspace from './pages/Workspace'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import { useAuth } from './context/AuthContext.js'
@@ -13,8 +11,6 @@ import { useRouter } from './router/RouterContext.js'
 
 const ROUTES = [
   { path: '/aura', element: <Home /> },
-  { path: '/aura/dashboard', element: <Dashboard />, protected: true },
-  { path: '/aura/workspace', element: <Workspace />, protected: true },
   { path: '/aura/login', element: <Login />, skipLayout: true },
   { path: '/aura/not-found', element: <NotFound />, skipLayout: true },
 ]
