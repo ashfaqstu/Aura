@@ -12,10 +12,10 @@ export default function Home() {
           that keep your team aligned.
         </p>
         <div className="home__cta">
-          <Link to="/aura/dashboard" className="home__cta-primary">
+          <Link to="/Aura/dashboard" className="home__cta-primary">
             Explore dashboard
           </Link>
-          <Link to="/aura/workspace" className="home__cta-secondary">
+          <Link to="/Aura/workspace" className="home__cta-secondary">
             Visit workspace
           </Link>
         </div>
