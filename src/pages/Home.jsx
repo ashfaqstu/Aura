@@ -10,14 +10,13 @@ export default function Home() {
     <circle className="circles absolute bottom-0 left-0 w-50 h-50 bg-sky-300 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-2000"></circle>
     <div className="home blur-2xl "/>
     
-    
+  
    <div className=" h-screen flex items justify-center items-center ">
      <h1 className="text-[150px] font-space text-blue-300">AURA</h1>
      
-     
    </div>
    
-    </>
+   </>
   )
 }
 

@@ -42,7 +42,8 @@
 }
 
 .navbar__greeting {
-  color: rgba(37, 99, 235, 0.85);
+  color: rgba(46, 46, 46, 0.3);
+  font-family: Helvetica, sans-serif;
 }
 
 .navbar__button {

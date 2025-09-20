@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@google/model-viewer": "^4.1.0",
     "@googlemaps/js-api-loader": "^1.16.10",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.3.0",
